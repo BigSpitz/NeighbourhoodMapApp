@@ -1,42 +1,61 @@
+body{
+
+
+
+
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 #map {
-  height: 100%;
+  display:block;
+  height:500px;
+  width:100%;
+
 }
 
-.navbar{
-  display: block;
+.header{
   height: 100px;
   background-color: black;
 }
 
 footer{
-  background-color:black;
+background-color: green;
+  height:100px;
+  width:100%;
+  bottom: 0px;
+}
+
+#navlist{
+
+}
+li{
+
+}
+.list{
+  background-color: gray;
+  padding:10px;
+  padding-top: 0px;
+}
+.coffee-item{
+  padding:5px;
+}
+
+#search-filter{
+  height: 100px;
+  background-color: yellow;
+  justify-content: center;
+}
+#navlist{
+  display: flex;
+  flex-direction: column;
+}
+.search-input{
+  margin-top: 40px;
 }

@@ -15,7 +15,7 @@ class GoogleMaps extends Component {
         defaultZoom = { 15 }
 
       >
-{this.props.coffeeArray.map((ll,i)=><Marker key={i} position={{ lat: ll[0], lng: ll[1] }} />)}
+{this.props.coffeeArray.map((ll,i)=><Marker key={i} position={{ lat: ll.location.lat, lng: ll.location.lng }} />)}
 
 
       </GoogleMap>
@@ -23,7 +23,7 @@ class GoogleMaps extends Component {
    return(
       <div>
         <GoogleMapGazi
-          containerElement={ <div style={{ height: `500px`, width: '100%' }} /> }
+          containerElement={ <div style={{ height: `500px`, width: '600px' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
         />
       </div>
