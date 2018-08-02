@@ -4,6 +4,9 @@ import './App.css';
 
 
 class Navlist extends Component {
+  state={
+    
+  }
 
 
 
@@ -14,7 +17,7 @@ class Navlist extends Component {
 
      <div id='coffee-list'>
 <ul className='list'>LIST OF COFFEE SHOPS
-{this.props.coffeeArray.map(coffee=> <li className='coffee-item' key={coffee.id}> {coffee.name} </li>)}
+{this.props.coffeeArray.map(coffee=> <li className='coffee-item' key={coffee.id}> {coffee.location.address} </li>)}
 </ul>
 </div>
 </div>

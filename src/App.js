@@ -8,7 +8,9 @@ import Search from './search';
 class App extends Component {
   state = {
     coffeeArray: [],
-    constCoffe:[]
+    constCoffe:[],
+    lat:25.804281,
+    lng:-80.1903893
   }
 
 updateState(coffeeArray){
@@ -17,7 +19,7 @@ updateState(coffeeArray){
 
 
  foursquareGetCoffee() {
-   fetch(`https://api.foursquare.com/v2/venues/search?ll=37.9784901,23.7118831&radius=800&query=coffee&client_id=WKYFMVAN25S40USFER3ZLDFAOWZ3ZGKLZQ0QEJU1TBOXTGKT&client_secret=OJMU5I2IU1LZWVG0IOSHRZECKMTQVXTD2WRL51KWTNNYCDVE&v=20180731`)
+   fetch(`https://api.foursquare.com/v2/venues/search?ll=25.804281,-80.189295&radius=800&query=coffee&client_id=WKYFMVAN25S40USFER3ZLDFAOWZ3ZGKLZQ0QEJU1TBOXTGKT&client_secret=OJMU5I2IU1LZWVG0IOSHRZECKMTQVXTD2WRL51KWTNNYCDVE&v=20180731`)
    .then(data => data=data.json()).then((result)=>result.response.venues.map(coffee=>this.setState(prevState => ({ coffeeArray: [...prevState.coffeeArray, coffee] ,  constCoffe: [...prevState.constCoffe, coffee]}))));
  }
 
@@ -31,7 +33,7 @@ updateState(coffeeArray){
 
     <div id='navlist'>
     <div id='search-filter'>
-< Search coffeeArray={this.state.coffeeArray} constCoffe={this.state.constCoffe} updateState={this.updateState.bind(this)}/>
+<Search coffeeArray={this.state.coffeeArray} constCoffe={this.state.constCoffe} updateState={this.updateState.bind(this)}/>
     </div>
     < Navlist coffeeArray={this.state.coffeeArray} />
     sdfsdfsdfsdfsdsfsdfsdfsdfdsf
@@ -42,7 +44,7 @@ updateState(coffeeArray){
 <div id='map'>
 
 
-    <GoogleMaps coffeeArray={this.state.coffeeArray}/ >
+    <GoogleMaps coffeeArray={this.state.coffeeArray} lat={this.state.lat} lng={this.state.lng}/ >
 
     </div>
       <footer > sadffffffffffffffffffffffffffffffffff

@@ -18,8 +18,8 @@ class Search extends Component {
   else if (query && query!==''){
   const match = new RegExp(escapeRegExp(query), 'i')
     console.log(match)
-    //contacts.filter((contact) => match.test(contact.name))
-    let searchResults=this.props.constCoffe.filter(coffee=>match.test(coffee.name));
+
+    let searchResults=this.props.constCoffe.filter(coffee=>match.test(coffee.location.address));
     this.props.updateState(searchResults);
   }
   }
