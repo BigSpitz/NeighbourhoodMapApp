@@ -28,4 +28,5 @@ I hope it will be taken in consideration when the app is reviewed as it is funct
 in which date I hope foursquare will have also unblocked me. Some notes on my code, the fetching codes
 are really messy and I think they can be further improved, I would like to take another crack at using
 react waterfall, alothough I couldn't make it work.My coffeArray state array can benefit from
-trimming the objects to only the values needed like ll, id, address.
+trimming the objects to only the values needed like ll, id, address. Generally I would like to use a more
+object oriented approach. Thank you for reading my readme file and enjoy the app!!
