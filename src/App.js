@@ -57,7 +57,7 @@ menuHandler=()=>{
         <main>
             <div className = "header">
                 <div className='menu-icon'>
-                    <img src='./menu.png' id='menu-icon' alt='humburger menu icon' onClick={this.menuHandler} tabIndex='2' role='menu'/>
+                    <img src='./menu.png' id='menu-icon' alt='humburger menu icon' onClick={this.menuHandler} tabIndex='2' role='Menu'/>
                     </div>
                 <div id='title'>
                     <h1 tabIndex='1'>NEIGHBOURHOOD MAP</h1>

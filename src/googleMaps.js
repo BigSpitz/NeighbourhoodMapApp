@@ -32,9 +32,13 @@ options={{ icon : 'http://www.clker.com/cliparts/3/A/L/8/x/i/light-green-marker-
 
   <InfoWindow>
   <div className='info-window'>
-  <h4>{ll.name}</h4>
+  <strong>Coffe Shop name:</strong>
+  <p>{ll.name}</p>
+  <strong>Address</strong>
   <p>{ll.location.address}</p>
-  <img className='infophoto' src={ll.url ? ll.url : 'https://cdn.pixabay.com/photo/2013/08/11/19/46/coffee-171653_960_720.jpg' } alt={ll.name}/>
+  <strong>Postal Code</strong>
+  <p>{ll.location.postalCode}</p>
+  <img className='infophoto' src={ll.url ? ll.url : 'coffee.jpg' } alt={ll.name}/>
   </div>
   </InfoWindow>
   </Marker>
