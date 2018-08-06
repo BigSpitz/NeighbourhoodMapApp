@@ -8,6 +8,8 @@ const GoogleMapGazi = withGoogleMap(props => (
     defaultZoom={15}
   >
 
+
+
   {document.querySelectorAll('#map div').forEach(map=>map.setAttribute('tabIndex','-1'))}
   {document.querySelectorAll('#map *').forEach(map=>map.setAttribute('tabIndex','-1'))}
   {document.querySelectorAll('button').forEach(map=>map.setAttribute('tabIndex','-1'))}
@@ -24,7 +26,7 @@ options={{ icon : 'http://www.clker.com/cliparts/9/M/M/q/x/M/semi-blue-pin-th.pn
   </Marker>
 :
 
-<Marker key={i}
+<Marker key={props.infotrick}
 onClick={() => {props.updateInfoState(ll.id);}}
 position={{ lat: ll.location.lat, lng: ll.location.lng }}
 options={{ icon : 'http://www.clker.com/cliparts/3/A/L/8/x/i/light-green-marker-th.png'}}
@@ -44,6 +46,7 @@ options={{ icon : 'http://www.clker.com/cliparts/3/A/L/8/x/i/light-green-marker-
   </Marker>
 )}
   </GoogleMap>
+
 ));
 
 class GoogleMaps extends Component {
@@ -55,7 +58,16 @@ class GoogleMaps extends Component {
           containerElement={<div style={{ height: `calc(100vh - 200px)`, width: "100%" }} />}
           mapElement={<div style={{ height: `100%` }} />}
           {...this.props}
+        
+
+
+
+
+
+
+
         />
+
     );
   }
 }

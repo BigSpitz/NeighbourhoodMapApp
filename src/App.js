@@ -11,7 +11,8 @@ class App extends Component {
     coffeeArray: [],
     constCoffe:[],
     infoWindowState:'',
-    menuState:true
+    menuState:true,
+    infotrick:true
   }
 
 updateState(coffeeArray){
@@ -19,9 +20,16 @@ updateState(coffeeArray){
 }
 updateInfoState(value){
   this.setState({infoWindowState : value});
+  this.state.infotrick ? this.setState({infotrick: false})
+  : this.setState({infotrick: true});
+
 }
 
 menuHandler=()=>{
+  this.state.menuState ? this.setState({menuState: false})
+  : this.setState({menuState: true})}
+
+infotrick=()=>{
   this.state.menuState ? this.setState({menuState: false})
   : this.setState({menuState: true})}
 
@@ -64,7 +72,7 @@ menuHandler=()=>{
                 </div>
                 </div>
              <div id='map' tabIndex='-1' aria-label='map container'>
-             <GoogleMaps aria-label='map' coffeeArray={this.state.coffeeArray}  id={this.state.id} infoWindowState={this.state.infoWindowState} updateInfoState={this.updateInfoState.bind(this)}  / >
+             <GoogleMaps aria-label='map' infotrick={this.state.infotrick} coffeeArray={this.state.coffeeArray}  id={this.state.id} infoWindowState={this.state.infoWindowState} updateInfoState={this.updateInfoState.bind(this)}  / >
              </div>
              <footer tabIndex='14'> Made by Nick Xeras- Udacity Neighbourhood Map for Google Developers Scholarhip <br/>
              Maps Markers used from <a target='blank' href='http://www.clker.com/'>Clker</a> and Coffe Shop details and images using <a target='blank'href='https://developer.foursquare.com/'>Foursquare API</a>
