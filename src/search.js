@@ -31,7 +31,7 @@ class Search extends Component {
     return (
       <div className = "search-input"  >
       <h3> Filter</h3>
-      <input type = "text" tabIndex='3'  aria-label='address search' role='filter'
+      <input type = "text" tabIndex='3'  aria-label='address search' role='textbox'
       placeholder = "Coffee Shop Address"
       value = {
         this.state.query
