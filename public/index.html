@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#000000">
       <!--Added the google maps script -->
      <!--Added the gm_authFailure() function to handle google map problems -->
-     <!--Added the window.kostas variable to check google maps has loaded after GoogleCallback-->
+     <!--Added the window.mapLoaded variable to check google maps has loaded after GoogleCallback-->
 
   <script>window.mapLoaded=false</script>
   <script> function gm_authFailure(){ alert('There has been a problem loading Google Maps')}</script>
@@ -16,7 +16,7 @@
 
 
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWDKoaSBZPlWEq-BTiaHwuC0A8dkDN23I&callback=GoogleCallback" onerror="errorFallback()">></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzadSyDWDKoaSBZPlWEq-BTiaHwuC0A8dkDN23I&callback=GoogleCallback" onerror="errorFallback()">></script>
 
     <!--
       manifest.json provides metadata used when your web app is added to the

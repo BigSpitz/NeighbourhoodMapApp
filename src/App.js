@@ -13,8 +13,8 @@ class App extends Component {
     constCoffe:[],
     infoWindowState:'',
     menuState:true,
-    infotrick:true,
-    maps:false
+    infotrick:true
+
   }
 
 updateState(coffeeArray){
@@ -84,11 +84,32 @@ if (window.mapLoaded===true)
         </main>
     </div>
   );}
-else {return(
-  <div id='loading'>
-        <h1> Loading.... </h1>
+else {return (
+<div className = "App" >
+    <div id='navlist' className={this.state.menuState ? 'hidden': null}>
+        <div id='search-filter'>
+        <Search coffeeArray={this.state.coffeeArray} constCoffe={this.state.constCoffe} updateState={this.updateState.bind(this)} />
         </div>
-      )
+    <Navlist coffeeArray={this.state.coffeeArray} updateInfoState={this.updateInfoState.bind(this)}/>
+    </div>
+    <main>
+        <div className = "header">
+            <div className='menu-icon'>
+                <img src='./menu.png' id='menu-icon' alt='humburger menu icon' onClick={this.menuHandler} tabIndex='2' role='button' aria-pressed={!this.state.menuState}/>
+                </div>
+            <div id='title'>
+                <h1 tabIndex='1'>NEIGHBOURHOOD MAP</h1>
+            </div>
+            </div>
+         <div id='map' tabIndex='-1' aria-label='map container'>
+         <p> loading </p>
+         </div>
+         <footer tabIndex='14'> Made by Nick Xeras- Udacity Neighbourhood Map for Google Developers Scholarhip <br/>
+         Maps Markers used from <a target='blank' href='http://www.clker.com/'>Clker</a> and Coffe Shop details and images using <a target='blank'href='https://developer.foursquare.com/'>Foursquare API</a>
+         </footer>
+    </main>
+</div>
+)
 
   }
 }
