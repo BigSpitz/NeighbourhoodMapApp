@@ -3,6 +3,7 @@ import './App.css';
 import GoogleMaps from './googleMaps';
 import Navlist from './navlist';
 import Search from './search';
+import ErrorBoundary from 'react-error-boundary';
 
 
 // TODO: clean state's coffeArray array's Objects accepting only relevant values from result json like id, address etc
@@ -12,7 +13,8 @@ class App extends Component {
     constCoffe:[],
     infoWindowState:'',
     menuState:true,
-    infotrick:true
+    infotrick:true,
+    maps:false
   }
 
 updateState(coffeeArray){
@@ -22,9 +24,7 @@ updateInfoState(value){
   this.setState({infoWindowState : value});
   this.state.infotrick ? this.setState({infotrick: false})
   : this.setState({infotrick: true});
-
 }
-
 menuHandler=()=>{
   this.state.menuState ? this.setState({menuState: false})
   : this.setState({menuState: true})}
@@ -35,8 +35,7 @@ infotrick=()=>{
 
 
   componentDidMount() {
-
-    // TODO: Clean up this mess, it works and has error catches for all fetches but it is not 'readable' if I had more time it would be better, although I will continue to work on it even after sending it for review
+        // TODO: Clean up this mess, it works and has error catches for all fetches but it is not 'readable' if I had more time it would be better, although I will continue to work on it even after sending it for review
     fetch(`https://api.foursquare.com/v2/venues/search?ll=51.515312,-0.1389957&radius=150&query=coffee&client_id=WKYFMVAN25S40USFER3ZLDFAOWZ3ZGKLZQ0QEJU1TBOXTGKT&client_secret=OJMU5I2IU1LZWVG0IOSHRZECKMTQVXTD2WRL51KWTNNYCDVE&v=20180731`)
     .then(function(response)
         {if (!response.ok) {throw Error;}return response;})
@@ -54,6 +53,9 @@ infotrick=()=>{
 ))}
 
   render() {
+
+if (window.mapLoaded===true)
+{
     return (
     <div className = "App" >
         <div id='navlist' className={this.state.menuState ? 'hidden': null}>
@@ -72,15 +74,25 @@ infotrick=()=>{
                 </div>
                 </div>
              <div id='map' tabIndex='-1' aria-label='map container'>
+             <ErrorBoundary onError={console.log('ups! something went wrong!')}>
              <GoogleMaps aria-label='map' infotrick={this.state.infotrick} coffeeArray={this.state.coffeeArray}  id={this.state.id} infoWindowState={this.state.infoWindowState} updateInfoState={this.updateInfoState.bind(this)}  / >
+             </ErrorBoundary>
              </div>
              <footer tabIndex='14'> Made by Nick Xeras- Udacity Neighbourhood Map for Google Developers Scholarhip <br/>
              Maps Markers used from <a target='blank' href='http://www.clker.com/'>Clker</a> and Coffe Shop details and images using <a target='blank'href='https://developer.foursquare.com/'>Foursquare API</a>
              </footer>
         </main>
     </div>
-    );
+  );}
+else {return(
+  <div id='loading'>
+        <h1> Loading.... </h1>
+        </div>
+      )
+
   }
 }
+  }
+
 
 export default App;
